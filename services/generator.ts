@@ -1,5 +1,5 @@
 const Groq = require('groq-sdk');
-
+//apikey de https://console.groq.com/
 const groq = new Groq({ apiKey: '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' });
 
 export async function geradorPrevisoes(data: string) {
@@ -8,7 +8,7 @@ export async function geradorPrevisoes(data: string) {
             "messages": [
                 {
                     "role": "user",
-                    "content": "Estou fazendo um app onde o usuario entrará com a data de nascimento (DD/MM/AAAA) e quero responder com a previsão do horóscopo do dia, quero que seja muito engraçada, um pouco irônico e que não ofenda ninguém, mas seja criativo."
+                    "content": "Estou fazendo um app onde o usuario entrará com a data de nascimento (DD/MM/AAAA) e quero responder com a previsão do horóscopo do dia, quero que seja muito engraçada, um pouco irônico e que não ofenda ninguém, mas seja criativo. Considere a idade da pessoa para fornecer a resposta."
                 },
                 {
                     "role": "assistant",
@@ -44,8 +44,8 @@ export async function geradorPrevisoes(data: string) {
                 },
             ],
             "model": "llama-3.1-70b-versatile",
-            "temperature": 1,
-            "max_tokens": 100,
+            "temperature": 1, //temperatura mede a criatividade
+            "max_tokens": 100, //sequência da texto que pode variar de tamanho
         });
 
         return chatCompletion.choices[0]?.message.content;
