@@ -1,7 +1,7 @@
 import { MotiView } from "moti";
 import styles from "@/styles/styles";
 import React, { useState } from "react";
-import { Text, TextInput, TouchableOpacity, View, Image } from "react-native";
+import { Text, TextInput, TouchableOpacity, View } from "react-native";
 import { geradorPrevisoes } from "@/services/generator";
 import { dataMask } from "@/utils/data";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
@@ -34,7 +34,7 @@ export default function Index() {
     const maskedValue = dataMask(input);
     setData(maskedValue);
   }
-
+  // seleciona o ícone de acordo com a data informada pelo usuário
   function getSigno(dia: number, mes: number): string {
     const zodiacSigns = [
       { range: (mes === 3 && dia >= 21) || (mes === 4 && dia <= 19), icon: "zodiac-aries" },
